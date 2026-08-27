@@ -40,21 +40,33 @@ else:
     print("PSNR of median filter:", median_psnr)
     print("PSNR of gaussian filter:", gaussian_psnr)
     print("PSNR of bilateral filter:", bilateral_psnr)
-    plt.figure(figsize=(15, 5))
+    
+    plt.figure(figsize=(20, 5))
 
-    plt.subplot(1, 3, 1)
+    plt.subplot(1, 5, 1)
     plt.imshow(image_rgb)
-    plt.title("Original Image")
+    plt.title("Original")
     plt.axis("off")
 
-    plt.subplot(1, 3, 2)
+    plt.subplot(1, 5, 2)
     plt.imshow(noisy_image)
-    plt.title("Noisy Image")
+    plt.title(f"Noisy\nPSNR: {noisy_psnr:.2f} dB")
     plt.axis("off")
 
-    plt.subplot(1, 3, 3)
+    plt.subplot(1, 5, 3)
     plt.imshow(denoised_image)
-    plt.title("Denoised Image")
+    plt.title(f"Median\nPSNR: {median_psnr:.2f} dB")
     plt.axis("off")
 
+    plt.subplot(1, 5, 4)
+    plt.imshow(gaussian_denoised)
+    plt.title(f"Gaussian\nPSNR: {gaussian_psnr:.2f} dB")
+    plt.axis("off")
+
+    plt.subplot(1, 5, 5)
+    plt.imshow(bilateral_denoised)
+    plt.title(f"Bilateral\nPSNR: {bilateral_psnr:.2f} dB")
+    plt.axis("off")
+
+    plt.tight_layout()
     plt.show()
