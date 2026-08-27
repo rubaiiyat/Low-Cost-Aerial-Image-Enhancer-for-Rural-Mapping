@@ -21,6 +21,12 @@ else:
 
     noisy_image = np.clip(noisy_image, 0, 255).astype(np.uint8)
     denoised_image = cv2.medianBlur(noisy_image, 5)
+
+    noisy_psnr = cv2.PSNR(image_rgb, noisy_image)
+    denoised_psnr = cv2.PSNR(image_rgb, denoised_image)
+
+    print("PSNR of noisy image:", noisy_psnr)
+    print("PSNR of denoised image:", denoised_psnr)
     plt.figure(figsize=(15, 5))
 
     plt.subplot(1, 3, 1)
